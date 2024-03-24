@@ -88,6 +88,10 @@ public class ProductServiceImp implements ProductService {
             {
                 findProduct.get().setImageUrl(productDetails.getImageUrl());
             }
+            // set category
+            if (productDetails.getCategory()!=null) {
+                findProduct.get().setCategory(productDetails.getCategory());
+            }
             return this.productRepository.save(findProduct.get());
         }else {
             throw new ProductException("No product exist with Id:"+productDetails.getProductId());
